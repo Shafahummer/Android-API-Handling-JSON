@@ -15,13 +15,16 @@ public class MainActivity extends AppCompatActivity {
 
         Gson gson=new Gson();
 
-        Course course=new Course("Java","Bootcamp");
+//        Course course=new Course("Java","Bootcamp");
+//
+//        Student student=new Student("shafah",3,"abc@gmail.com",course);
+//
+//        String json=gson.toJson(student);
 
-        Student student=new Student("shafah",3,"abc@gmail.com",course);
+        String json="{\"courseCount\":3,\"email\":\"abc@gmail.com\",\"course\":{\"description\":\"Bootcamp\",\"name\":\"Java\"},\"name\":\"shafah\"}";
+        Student student=gson.fromJson(json,Student.class);
 
-        String json=gson.toJson(student);
-
-        Log.d("TEST",json);
+        Log.d("TEST",student.toString());
 
 
     }
