@@ -23,16 +23,36 @@ public class MainActivity extends AppCompatActivity {
         videos.add(new Video("Exercise files",8));
         videos.add(new Video("Installations",12));
 
-        Course course=new Course("Java","Bootcamp");
-        Student student=new Student("shafah",3,"abc@gmail.com",course,videos);
-        String json=gson.toJson(student);
+//        Course course=new Course("Java","Bootcamp");
+//        Student student=new Student("shafah",3,"abc@gmail.com",course,videos);
+//        String json=gson.toJson(student);
 
-//        String json="{\"courseCount\":3,\"email\":\"abc@gmail.com\",\"course\":{\"description\":\"Bootcamp\",\"name\":\"Java\"},\"name\":\"shafah\"}";
-//        Student student=gson.fromJson(json,Student.class);
+        String json="{\n" +
+                "  \"courseCount\": 3,\n" +
+                "  \"email\": \"abc@gmail.com\",\n" +
+                "  \"course\": {\n" +
+                "    \"description\": \"Bootcamp\",\n" +
+                "    \"name\": \"Java\"\n" +
+                "  },\n" +
+                "  \"video\": [\n" +
+                "    {\n" +
+                "      \"duration\": 4,\n" +
+                "      \"name\": \"Intro\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"duration\": 8,\n" +
+                "      \"name\": \"Exercise files\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"duration\": 12,\n" +
+                "      \"name\": \"Installations\"\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"name\": \"shafah\"\n" +
+                "}";
+        Student student=gson.fromJson(json,Student.class);
 
-//        Log.d("TEST",student.toString());
-          Log.d("TEST",json);
-
+       Log.d("TEST",student.toString());
 
     }
 }
