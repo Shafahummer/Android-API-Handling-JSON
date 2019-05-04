@@ -9,9 +9,13 @@ public class Student {
     private int course_count;
     private String email;
 
-    public Student(String name, int courseCount, String email) {
+    @SerializedName("course")
+    private Course mCourse;
+
+    public Student(String name, int courseCount, String email,Course course) {
         this.name = name;
         this.course_count = courseCount;
         this.email = email;
+        mCourse=course;
     }
 }
