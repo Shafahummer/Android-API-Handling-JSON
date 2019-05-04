@@ -6,6 +6,9 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,16 +18,20 @@ public class MainActivity extends AppCompatActivity {
 
         Gson gson=new Gson();
 
-//        Course course=new Course("Java","Bootcamp");
-//
-//        Student student=new Student("shafah",3,"abc@gmail.com",course);
-//
-//        String json=gson.toJson(student);
+        List<Video>videos=new ArrayList<>();
+        videos.add(new Video("Intro",4));
+        videos.add(new Video("Exercise files",8));
+        videos.add(new Video("Installations",12));
 
-        String json="{\"courseCount\":3,\"email\":\"abc@gmail.com\",\"course\":{\"description\":\"Bootcamp\",\"name\":\"Java\"},\"name\":\"shafah\"}";
-        Student student=gson.fromJson(json,Student.class);
+        Course course=new Course("Java","Bootcamp");
+        Student student=new Student("shafah",3,"abc@gmail.com",course,videos);
+        String json=gson.toJson(student);
 
-        Log.d("TEST",student.toString());
+//        String json="{\"courseCount\":3,\"email\":\"abc@gmail.com\",\"course\":{\"description\":\"Bootcamp\",\"name\":\"Java\"},\"name\":\"shafah\"}";
+//        Student student=gson.fromJson(json,Student.class);
+
+//        Log.d("TEST",student.toString());
+          Log.d("TEST",json);
 
 
     }
